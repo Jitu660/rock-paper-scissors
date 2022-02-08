@@ -1,2 +1,2 @@
 # rock-paper-scissors
-Made this while learning Js in the Js fundamentals part of www.theodinproject.com
+A simple Rock-paper-scissors game, built using HTML, CSS and JavaScript.
