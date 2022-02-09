@@ -32,13 +32,13 @@ p {
 h1 {
   color: #ff2e63;
   font-size: 4rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 h2 {
   font-family: "Bebas Neue", cursive;
   font-size: 3rem;
   font-weight: 300;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 h3 {
   font-size: 2rem;
@@ -89,7 +89,6 @@ button {
   border: 4 4px solid #252a34;
   box-shadow: 4px 2px 2px #252a34;
   border-radius: 4px;
-  visibility: hidden;
 }
 .active {
   visibility: visible;
@@ -112,11 +111,32 @@ button {
   border: 8px solid #ff2e63;
   box-shadow: 10px 5px 5px #ff2e63;
   border-radius: 16px;
-  width: 12rem;
+  width: 10rem;
 }
-
+.choice:hover {
+  transform: scale(1.05);
+}
 /* footer */
-@media (max-width: 60rem) {
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background-color: #252a34;
+  color: #eaeaea;
+  padding: 0.5rem;
+}
+.footer {
+  font-size: 1rem;
+  text-align: center;
+}
+.footer > a {
+  color: #08d9d6;
+}
+.footer > a:hover {
+  color: #ff2e63;
+}
+/* media queries */
+@media (max-width: 70rem) {
   h1 {
     font-size: 6rem;
   }
@@ -130,5 +150,8 @@ button {
   }
   .scores > p {
     font-size: 12rem;
+  }
+  .footer {
+    font-size: 2rem;
   }
 }
