@@ -130,7 +130,7 @@ button:hover {
 }
 /* footer */
 footer {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100vw;
   background-color: #252a34;
@@ -153,27 +153,27 @@ footer {
     font-size: 2rem;
   }
   h2 {
-    font-size: 1.75em;
-    padding: 0.5em 0;
+    font-size: 1.75rem;
+    padding: 0.5rem 0;
   }
   h3 {
-    font-size: 2em;
-    padding: 0.5em 0;
+    font-size: 2rem;
+    padding: 0.5rem 0;
   }
   .scores > p {
-    font-size: 4em;
+    font-size: 4rem;
   }
   button {
-    font-size: 1em;
+    font-size: 1rem;
   }
   .footer {
-    font-size: 0.5em;
+    font-size: 0.5rem;
   }
   .current-choice > .player,
   .current-choice > .computer {
-    width: 6em;
+    width: 6rem;
   }
   .choice {
-    width: 6em;
+    width: 6rem;
   }
 }
