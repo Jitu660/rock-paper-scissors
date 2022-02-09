@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Rock Papers Scissors</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
   </head>
   <body>
     <section class="status">
@@ -12,28 +12,28 @@
       <h2>FIrst to 5 wins!</h2>
       <div class="container">
         <div class="scores">
-          <p>0</p>
+          <p id="playerScore">0</p>
           <div class="label">
             <h3 class="player">👈 Player</h3>
             <h3 class="computer">Computer 👉</h3>
           </div>
-          <p>0</p>
+          <p id="computerScore">0</p>
         </div>
         <div class="current-choice">
-          <div class="player"><img src="images/hand-back-fist-solid.svg" alt="" /></div>
+          <div class="player"><img src="" alt="" /></div>
           <div class="round-winner">
             <h3>Start</h3>
-            <h2>Rock beats Scissors</h2>
+            <h2>Click to select</h2>
           </div>
-          <div class="computer"><img src="images/hand-scissors-solid.svg" alt="" /></div>
+          <div class="computer"><img src="" alt="" /></div>
         </div>
       </div>
     </section>
 
     <section class="choices">
-      <img src="images/hand-back-fist-solid.svg" alt="" class="choice" />
-      <img src="images/hand-solid.svg" alt="" class="choice" />
-      <img src="images/hand-scissors-solid.svg" alt="" class="choice" />
+      <img src="images/ROCK.svg" alt="" class="choice" id="Rock" />
+      <img src="images/PAPER.svg" alt="" class="choice" id="Paper" />
+      <img src="images/SCISSORS.svg" alt="" class="choice" id="Scissors" />
     </section>
     <footer>
       <div class="footer">

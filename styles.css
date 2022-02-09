@@ -81,27 +81,34 @@ h3 {
 .label > .computer {
   text-align: right;
 }
+
+.round-winner > h3 {
+  color: #393e46;
+}
 button {
   background-color: #eaeaea;
-  font-size: larger;
-  font-weight: 600;
+  font-size: 1.5rem;
+  padding: 0.5em 1.5em;
+  font-weight: 700;
   margin: 0.5rem;
   border: 4 4px solid #252a34;
-  box-shadow: 4px 2px 2px #252a34;
+  box-shadow: 10px 5px 5px #252a34;
   border-radius: 4px;
 }
-.active {
-  visibility: visible;
+button:hover {
+  transform: scale(1.1);
 }
 /* current choice */
 .current-choice {
   border-top: 0;
+  text-align: center;
 }
 .current-choice > .player,
 .current-choice > .computer {
   width: 6rem;
   padding: 0.5rem;
 }
+
 /* Choices section */
 .choices {
   display: flex;
