@@ -1,86 +1,91 @@
+const playerScoreElement = document.querySelector("#playerScore");
+const computerScoreElement = document.querySelector("#computerScore");
+const resultBox = document.querySelector(".round-winner>h3");
+const whoBeatsWho = document.querySelector(".round-winner>h2");
+const button = document.createElement("button");
+button.textContent = "Play again";
+const playerChoiceImage = document.querySelector(".player>img");
+const computerChoiceImage = document.querySelector(".computer>img");
+
 function computerPlay() {
-  let randomNo = Math.floor(Math.random() * 3) + 1;
-
-  switch (randomNo) {
+  let choice = Math.floor(Math.random() * 3 + 1);
+  switch (choice) {
     case 1:
-      return "Rock";
+      return "ROCK";
     case 2:
-      return "Paper";
+      return "PAPER";
     case 3:
-      return "Scissors";
+      return "SCISSORS";
   }
 }
 
-//Return integer so we can print different statement based on output
-//Player lose -1 , draw 0, win 1
-function play(playerSelection, computerSelection) {
-  if (computerSelection === playerSelection) {
-    return 0;
-  }
-  if (playerSelection === "Rock") {
-    if (computerSelection === "Paper") {
-      return -1;
-    } else {
-      return 1;
-    }
-  } else if (playerSelection === "Paper") {
-    if (computerSelection === "Rock") {
-      return 1;
-    } else {
-      return -1;
-    }
+let playerScore = 0;
+let computerScore = 0;
+
+function updateScore(result, playerChoice, computerChoice) {
+  computerChoiceImage.setAttribute("src", `images/${computerChoice}.svg`);
+  playerChoiceImage.setAttribute("src", `images/${playerChoice}.svg`);
+  if (result === "draw") {
+    resultBox.textContent = "Draw!";
+    whoBeatsWho.textContent = `Computer also chose ${playerChoice}`;
+  } else if (result === "pWon") {
+    resultBox.textContent = "You won this round!";
+    whoBeatsWho.textContent = `${playerChoice} beats ${computerChoice}`;
+    playerScoreElement.textContent = playerScore;
   } else {
-    if (computerSelection === "Rock") {
-      return 1;
-    } else {
-      return -1;
-    }
+    resultBox.textContent = "You lost this round!";
+    whoBeatsWho.textContent = `${computerChoice} beats ${playerChoice}`;
+    computerScoreElement.textContent = computerScore;
   }
 }
 
-function game() {
-  let computerScore = 0;
-  let playerScore = 0;
-
-  for (let round = 1; round <= 5; round++) {
-    console.log(`Round ${round}:`);
-    let choice = prompt("Enter your choice: \n 1: Rock \n 2: Paper \n 3: Scissors.");
-
-    let playerSelection =
-      choice == 1 ? "Rock" : choice == 2 ? "Paper" : choice == 3 ? "Scissors" : undefined;
-
-    if (playerSelection === undefined) {
-      console.log("Enter valid choice, round will restart again");
-      round--;
-      continue;
-    }
-    let computerSelection = computerPlay();
-    let result = play(playerSelection, computerSelection);
-
-    if (result === 1) {
-      playerScore++;
-      console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
-    } else if (result === -1) {
-      computerScore++;
-      console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
-    } else {
-      console.log(`Draw! computer also chose ${playerSelection}`);
-    }
-
-    console.log(
-      `Current Scores: \n Player: ${playerScore} \n Computer: ${computerScore}`
-    );
-
-    console.log("------------------------------------------------");
+flag = 1;
+function gameOver(result) {
+  if (flag === 0) {
+    return;
   }
-  console.log("Final Result\n ");
-  if (playerScore > computerScore) {
-    console.log("You Won!");
-  } else if (playerScore < computerScore) {
-    console.log("You Lose!");
+  whoBeatsWho.remove();
+  const finalResultBox = document.querySelector(".round-winner");
+  finalResultBox.append(button);
+  if (result === "pWon") {
+    flag = 0;
+    resultBox.textContent = "You Won! 🥳";
   } else {
-    console.log("Draw");
+    flag = 0;
+    resultBox.textContent = "You Lost! 🙃";
   }
 }
 
-game();
+function playRound(playerChoice) {
+  if (playerScore === 5) {
+    gameOver("pWon");
+    return;
+  } else if (computerScore === 5) {
+    gameOver("pLost");
+    return;
+  }
+  let computerChoice = computerPlay();
+
+  if (playerChoice === computerChoice) {
+    updateScore("draw", playerChoice, computerChoice);
+  } else if (
+    (playerChoice === "ROCK" && computerChoice === "SCISSORS") ||
+    (playerChoice === "PAPER" && computerChoice === "ROCK") ||
+    (playerChoice === "SCISSORS" && computerChoice === "ROCK")
+  ) {
+    playerScore++;
+    updateScore("pWon", playerChoice, computerChoice);
+  } else {
+    computerScore++;
+    updateScore("pLost", playerChoice, computerChoice);
+  }
+}
+const rock = document.querySelector("#Rock");
+const paper = document.querySelector("#Paper");
+const scissor = document.querySelector("#Scissors");
+
+rock.addEventListener("click", () => playRound("ROCK"));
+paper.addEventListener("click", () => playRound("PAPER"));
+scissor.addEventListener("click", () => playRound("SCISSORS"));
+
+button.addEventListener("click", () => (window.location.href = window.location.href));

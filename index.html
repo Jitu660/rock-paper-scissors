@@ -3,9 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <title>Rock Papers Scissors</title>
-    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="javascript.js" defer></script>
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
+    <section class="status">
+      <h1>Rock Paper Scissors</h1>
+      <h2>FIrst to 5 wins!</h2>
+      <div class="container">
+        <div class="scores">
+          <p id="playerScore">0</p>
+          <div class="label">
+            <h3 class="player">👈 Player</h3>
+            <h3 class="computer">Computer 👉</h3>
+          </div>
+          <p id="computerScore">0</p>
+        </div>
+        <div class="current-choice">
+          <div class="player"><img src="" alt="" /></div>
+          <div class="round-winner">
+            <h3>Start</h3>
+            <h2>Click to select</h2>
+          </div>
+          <div class="computer"><img src="" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="choices">
+      <img src="images/ROCK.svg" alt="" class="choice" id="Rock" />
+      <img src="images/PAPER.svg" alt="" class="choice" id="Paper" />
+      <img src="images/SCISSORS.svg" alt="" class="choice" id="Scissors" />
+    </section>
+    <footer>
+      <div class="footer">
+        Made by Jitendra. &emsp;<a href="https://github.com/Jitu660"> Github</a>
+      </div>
+    </footer>
   </body>
 </html>
