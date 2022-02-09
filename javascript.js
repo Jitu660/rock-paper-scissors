@@ -57,13 +57,6 @@ function gameOver(result) {
 }
 
 function playRound(playerChoice) {
-  if (playerScore === 5) {
-    gameOver("pWon");
-    return;
-  } else if (computerScore === 5) {
-    gameOver("pLost");
-    return;
-  }
   let computerChoice = computerPlay();
 
   if (playerChoice === computerChoice) {
@@ -78,6 +71,13 @@ function playRound(playerChoice) {
   } else {
     computerScore++;
     updateScore("pLost", playerChoice, computerChoice);
+  }
+  if (playerScore === 5) {
+    gameOver("pWon");
+    return;
+  } else if (computerScore === 5) {
+    gameOver("pLost");
+    return;
   }
 }
 const rock = document.querySelector("#Rock");

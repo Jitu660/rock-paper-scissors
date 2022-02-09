@@ -163,6 +163,9 @@ footer {
   .scores > p {
     font-size: 12rem;
   }
+  button {
+    font-size: 3rem;
+  }
   .footer {
     font-size: 2rem;
   }
