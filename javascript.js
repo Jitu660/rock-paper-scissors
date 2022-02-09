@@ -57,6 +57,13 @@ function gameOver(result) {
 }
 
 function playRound(playerChoice) {
+  if (playerScore === 5) {
+    gameOver("pWon");
+    return;
+  } else if (computerScore === 5) {
+    gameOver("pLost");
+    return;
+  }
   let computerChoice = computerPlay();
 
   if (playerChoice === computerChoice) {
