@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #eaeaea;
+  background-color: #393e46;
   font-family: "Poppins", sans-serif;
 }
 /* Upper section */
@@ -43,7 +43,9 @@ h2 {
 h3 {
   font-size: 2rem;
 }
-
+.status > h2 {
+  color: #eaeaea;
+}
 .container {
   box-shadow: 10px 5px 5px #ff2e63;
   border: 8px solid #ff2e63;
