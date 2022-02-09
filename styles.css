@@ -97,6 +97,11 @@ button {
 .current-choice {
   border-top: 0;
 }
+.current-choice > .player,
+.current-choice > .computer {
+  width: 6rem;
+  padding: 0.5rem;
+}
 /* Choices section */
 .choices {
   display: flex;
@@ -153,5 +158,9 @@ footer {
   }
   .footer {
     font-size: 2rem;
+  }
+  .current-choice > .player,
+  .current-choice > .computer {
+    width: 10rem;
   }
 }
